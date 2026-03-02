@@ -4,120 +4,116 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Holi My Love ❤️</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(-45deg,#ff6ec4,#7873f5,#f7971e,#ffd200);
-    background-size:400% 400%;
-    animation:bgMove 10s infinite alternate;
-    padding:20px;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff6ec4,#7873f5,#f7971e,#ffd200);
+background-size:400% 400%;
+animation:bgMove 8s infinite alternate;
+overflow:hidden;
+padding:20px;
 }
 
 @keyframes bgMove{
-    0%{background-position:0% 50%}
-    100%{background-position:100% 50%}
+0%{background-position:0% 50%}
+100%{background-position:100% 50%}
 }
 
 .card{
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(15px);
-    padding:30px;
-    border-radius:25px;
-    text-align:center;
-    max-width:400px;
-    width:100%;
-    color:white;
-    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(20px);
+padding:30px;
+border-radius:25px;
+text-align:center;
+max-width:420px;
+width:100%;
+color:white;
+box-shadow:0 15px 50px rgba(0,0,0,0.3);
+position:relative;
+z-index:2;
 }
 
 .card img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid white;
-    margin-bottom:15px;
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+margin-bottom:15px;
 }
 
 h1{
-    font-size:2rem;
-    margin-bottom:10px;
+font-size:2rem;
+margin-bottom:10px;
+min-height:50px;
 }
-
 p{
     font-size:1rem;
     margin-bottom:20px;
 }
 
 button{
-    padding:12px 25px;
-    border:none;
-    border-radius:30px;
-    background:white;
-    color:#ff4081;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4081;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
 }
 
 button:hover{
-    transform:scale(1.1);
-    background:#ff4081;
-    color:white;
+transform:scale(1.1);
+background:#ff4081;
+color:white;
 }
 
-.message{
-    margin-top:20px;
-    display:none;
-    font-size:1.1rem;
-    animation:fadeIn 2s ease forwards;
+.letter{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+padding:30px;
+display:none;
+z-index:5;
+animation:fadeIn 1s ease forwards;
 }
 
 @keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
+from{opacity:0;}
+to{opacity:1;}
 }
 
-/* Floating colors */
 .color{
-    position:fixed;
-    width:15px;
-    height:15px;
-    border-radius:50%;
-    animation:float 5s linear infinite;
-    opacity:0.7;
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+animation:blast 2s linear forwards;
 }
 
-@keyframes float{
-    from{
-        transform:translateY(100vh) scale(0.5);
-    }
-    to{
-        transform:translateY(-10vh) scale(1);
-    }
+@keyframes blast{
+from{transform:translate(0,0);opacity:1;}
+to{transform:translate(var(--x),var(--y));opacity:0;}
 }
 
-/* Responsive */
 @media(max-width:480px){
-    .card{
-        padding:20px;
-    }
-    h1{
-        font-size:1.5rem;
-    }
+h1{font-size:1.5rem;}
 }
 </style>
 </head>
@@ -125,41 +121,78 @@ button:hover{
 <body>
 
 <div class="card">
-    <!-- 👇 Replace this image with her photo -->
-    <img src="r.jpeg" alt="Her Photo">
-
-    <h1>Happy Holi My Love 🌈❤️</h1>
-    <p>You are the most beautiful color of my life 💕</p>
-
-    <button onclick="showLove()">Tap for Surprise 🎁</button>
-
-    <div class="message" id="loveMessage">
-        This Holi I promise to fill your life with  
-        happiness, laughter & endless love 😘💖  
-        <br><br>
-        I Love You Forever ❤️
-    </div>
+<img src="r.jpeg" alt="Her Photo">
+<h1 id="typing"></h1>
+<button onclick="startSurprise()">Open Your Surprise 🎁</button>
 </div>
 
+<div class="letter" id="loveLetter">
+<div>
+<h2>Happy Holi My Love 🌈❤️</h2>
+    <p>You are the most beautiful color of my life 💕</p>
+<p style="margin-top:20px;">
+This Holi I just want to color your life with happiness,
+love and endless smiles 😘💖 <br><br>
+You are the most beautiful part of my world.
+I Love You Forever ❤️
+</p>
+</div>
+</div>
+
+<audio id="bgMusic" preload="auto">
+<source src="love.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-function showLove(){
-    document.getElementById("loveMessage").style.display="block";
 
-    for(let i=0;i<50;i++){
-        let color=document.createElement("div");
-        color.classList.add("color");
-        document.body.appendChild(color);
+const music = document.getElementById("bgMusic");
+const nameText = "Happy Holi Riya ❤️";  // 👈 Yaha uska naam likh dena
+let i = 0;
 
-        color.style.left=Math.random()*100+"vw";
-        color.style.background=`hsl(${Math.random()*360},100%,50%)`;
-        color.style.animationDuration=(3+Math.random()*5)+"s";
-
-        setTimeout(()=>{color.remove();},5000);
-    }
+// Typing Animation
+function typeEffect(){
+if(i < nameText.length){
+document.getElementById("typing").innerHTML += nameText.charAt(i);
+i++;
+setTimeout(typeEffect,80);
 }
-</script>
+}
+typeEffect();
+
+// Autoplay Try
+window.addEventListener("load", function(){
+music.play().catch(()=>{});
+});
+
+// Backup click start
+document.addEventListener("click", function(){
+music.play().catch(()=>{});
+}, { once:true });
+
+function startSurprise(){
+
+music.play().catch(()=>{});
+
+document.getElementById("loveLetter").style.display="flex";
+
+// Gulal Blast
+for(let i=0;i<120;i++){
+let color=document.createElement("div");
+color.classList.add("color");
+document.body.appendChild(color);
+
+color.style.background=`hsl(${Math.random()*360},100%,50%)`;
+color.style.left=window.innerWidth/2+"px";
+color.style.top=window.innerHeight/2+"px";
+color.style.setProperty('--x',(Math.random()*800-400)+"px");
+color.style.setProperty('--y',(Math.random()*800-400)+"px");
+
+setTimeout(()=>{color.remove();},2000);
+}
+
+}
+
+</script>
+
 </body>
-
 </html>
-
-
