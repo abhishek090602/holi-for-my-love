@@ -4,116 +4,116 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Holi My Love ❤️</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
 body{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(-45deg,#ff6ec4,#7873f5,#f7971e,#ffd200);
-background-size:400% 400%;
-animation:bgMove 8s infinite alternate;
-overflow:hidden;
-padding:20px;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#ff6ec4,#7873f5,#f7971e,#ffd200);
+    background-size:400% 400%;
+    animation:bgMove 8s infinite alternate;
+    overflow-x:hidden;
+    padding:20px;
+    color:white;
+    text-align:center;
 }
 
 @keyframes bgMove{
-0%{background-position:0% 50%}
-100%{background-position:100% 50%}
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
 }
 
 .card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(20px);
-padding:30px;
-border-radius:25px;
-text-align:center;
-max-width:420px;
-width:100%;
-color:white;
-box-shadow:0 15px 50px rgba(0,0,0,0.3);
-position:relative;
-z-index:2;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+    padding:30px;
+    border-radius:25px;
+    max-width:420px;
+    width:100%;
+    box-shadow:0 15px 50px rgba(0,0,0,0.3);
 }
 
 .card img{
-width:150px;
-height:150px;
-border-radius:50%;
-object-fit:cover;
-border:5px solid white;
-margin-bottom:15px;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    margin-bottom:15px;
 }
 
 h1{
-font-size:2rem;
-margin-bottom:10px;
-min-height:50px;
+    font-size:2rem;
+    margin-bottom:10px;
 }
-p{
+
+.subtitle{
+    margin-bottom:15px;
     font-size:1rem;
+}
+
+#typing{
+    font-size:1.3rem;
     margin-bottom:20px;
+    min-height:30px;
 }
 
 button{
-padding:12px 25px;
-border:none;
-border-radius:30px;
-background:white;
-color:#ff4081;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4081;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
 }
 
 button:hover{
-transform:scale(1.1);
-background:#ff4081;
-color:white;
+    transform:scale(1.1);
+    background:#ff4081;
+    color:white;
 }
 
-.letter{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-color:white;
-padding:30px;
-display:none;
-z-index:5;
-animation:fadeIn 1s ease forwards;
+.surprise{
+    margin-top:30px;
+    max-width:500px;
+    display:none;
+    animation:slideUp 1s ease forwards;
 }
 
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
+@keyframes slideUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 .color{
-position:fixed;
-width:20px;
-height:20px;
-border-radius:50%;
-animation:blast 2s linear forwards;
+    position:fixed;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    animation:blast 2s linear forwards;
 }
 
 @keyframes blast{
-from{transform:translate(0,0);opacity:1;}
-to{transform:translate(var(--x),var(--y));opacity:0;}
+    from{transform:translate(0,0);opacity:1;}
+    to{transform:translate(var(--x),var(--y));opacity:0;}
 }
 
 @media(max-width:480px){
-h1{font-size:1.5rem;}
+    h1{font-size:1.5rem;}
 }
 </style>
 </head>
@@ -121,75 +121,75 @@ h1{font-size:1.5rem;}
 <body>
 
 <div class="card">
-<img src="r.jpeg" alt="Her Photo">
-<h1 id="typing"></h1>
-<button onclick="startSurprise()">Open Your Surprise 🎁</button>
+    <img src="r.jpeg" alt="Her Photo">
+
+    <h1>Happy Holi My Love 🌈❤️</h1>
+    <p class="subtitle">You are the most beautiful color of my life 💕</p>
+
+    <div id="typing"></div>
+
+    <button onclick="startSurprise()">Open Your Surprise 🎁</button>
 </div>
 
-<div class="letter" id="loveLetter">
-<div>
-<h2>Happy Holi My Love 🌈❤️</h2>
-    <p>You are the most beautiful color of my life 💕</p>
-<p style="margin-top:20px;">
-This Holi I just want to color your life with happiness,
-love and endless smiles 😘💖 <br><br>
-You are the most beautiful part of my world.
-I Love You Forever ❤️
-</p>
-</div>
+<div class="surprise" id="loveContent">
+    <h2>Happy Holi My Queen 🌸❤️</h2>
+    <p style="margin-top:15px;">
+        This Holi I want to fill your life with happiness,
+        love and endless smiles 😘💖 <br><br>
+        You are the most beautiful part of my world.
+        I Love You Forever ❤️
+    </p>
 </div>
 
 <audio id="bgMusic" preload="auto">
-<source src="love.mp3" type="audio/mpeg">
+    <source src="love.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
 const music = document.getElementById("bgMusic");
-const nameText = "Happy Holi Riya ❤️";  // 👈 Yaha uska naam likh dena
+const nameText = "Riya ❤️"; // 👈 Yaha uska naam likh dena
 let i = 0;
 
-// Typing Animation
+// Typing Effect
 function typeEffect(){
-if(i < nameText.length){
-document.getElementById("typing").innerHTML += nameText.charAt(i);
-i++;
-setTimeout(typeEffect,80);
-}
+    if(i < nameText.length){
+        document.getElementById("typing").innerHTML += nameText.charAt(i);
+        i++;
+        setTimeout(typeEffect,80);
+    }
 }
 typeEffect();
 
-// Autoplay Try
+// Autoplay try
 window.addEventListener("load", function(){
-music.play().catch(()=>{});
+    music.play().catch(()=>{});
 });
 
 // Backup click start
 document.addEventListener("click", function(){
-music.play().catch(()=>{});
+    music.play().catch(()=>{});
 }, { once:true });
 
 function startSurprise(){
 
-music.play().catch(()=>{});
+    music.play().catch(()=>{});
 
-document.getElementById("loveLetter").style.display="flex";
+    document.getElementById("loveContent").style.display="block";
 
-// Gulal Blast
-for(let i=0;i<120;i++){
-let color=document.createElement("div");
-color.classList.add("color");
-document.body.appendChild(color);
+    for(let i=0;i<100;i++){
+        let color=document.createElement("div");
+        color.classList.add("color");
+        document.body.appendChild(color);
 
-color.style.background=`hsl(${Math.random()*360},100%,50%)`;
-color.style.left=window.innerWidth/2+"px";
-color.style.top=window.innerHeight/2+"px";
-color.style.setProperty('--x',(Math.random()*800-400)+"px");
-color.style.setProperty('--y',(Math.random()*800-400)+"px");
+        color.style.background=`hsl(${Math.random()*360},100%,50%)`;
+        color.style.left=window.innerWidth/2+"px";
+        color.style.top=window.innerHeight/2+"px";
+        color.style.setProperty('--x',(Math.random()*800-400)+"px");
+        color.style.setProperty('--y',(Math.random()*800-400)+"px");
 
-setTimeout(()=>{color.remove();},2000);
-}
-
+        setTimeout(()=>{color.remove();},2000);
+    }
 }
 
 </script>
