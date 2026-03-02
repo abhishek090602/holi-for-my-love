@@ -143,8 +143,6 @@ button:hover{
 
 <script>
 function showLove(){
-    const music = document.getElementById("bgMusic");
-    music.play();
     document.getElementById("loveMessage").style.display="block";
 
     for(let i=0;i<50;i++){
@@ -159,10 +157,7 @@ function showLove(){
         setTimeout(()=>{color.remove();},5000);
     }
 }
-</script>
-<audio autoplay loop>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
+</script>
 </body>
 
 </html>
