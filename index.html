@@ -121,7 +121,9 @@ button:hover{
 }
 </style>
 </head>
-
+<audio autoplay loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
 <body>
 
 <div class="card">
@@ -143,6 +145,7 @@ button:hover{
 
 <script>
 function showLove(){
+    document.getElementById("bgMusic").play();
     document.getElementById("loveMessage").style.display="block";
 
     for(let i=0;i<50;i++){
@@ -162,3 +165,4 @@ function showLove(){
 </body>
 
 </html>
+
