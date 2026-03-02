@@ -3,193 +3,159 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Holi My Love ❤️</title>
+<title>Private Holi Surprise ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(-45deg,#ff6ec4,#7873f5,#f7971e,#ffd200);
-    background-size:400% 400%;
-    animation:bgMove 8s infinite alternate;
-    overflow-x:hidden;
-    padding:20px;
-    color:white;
-    text-align:center;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff6ec4,#7873f5,#f7971e,#ffd200);
+background-size:400% 400%;
+animation:bgMove 8s infinite alternate;
+overflow:hidden;
+color:white;
+text-align:center;
+padding:20px;
 }
 
 @keyframes bgMove{
-    0%{background-position:0% 50%}
-    100%{background-position:100% 50%}
+0%{background-position:0% 50%}
+100%{background-position:100% 50%}
 }
 
-.card{
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(20px);
-    padding:30px;
-    border-radius:25px;
-    max-width:420px;
-    width:100%;
-    box-shadow:0 15px 50px rgba(0,0,0,0.3);
+.container{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(20px);
+padding:30px;
+border-radius:25px;
+max-width:420px;
+width:100%;
+box-shadow:0 15px 50px rgba(0,0,0,0.3);
 }
 
-.card img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid white;
-    margin-bottom:15px;
-}
-
-h1{
-    font-size:2rem;
-    margin-bottom:10px;
-}
-
-.subtitle{
-    margin-bottom:15px;
-    font-size:1rem;
-}
-
-#typing{
-    font-size:1.3rem;
-    margin-bottom:20px;
-    min-height:30px;
+input{
+padding:10px;
+width:100%;
+border:none;
+border-radius:20px;
+margin-top:15px;
+text-align:center;
 }
 
 button{
-    padding:12px 25px;
-    border:none;
-    border-radius:30px;
-    background:white;
-    color:#ff4081;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+padding:10px 20px;
+margin-top:15px;
+border:none;
+border-radius:20px;
+background:white;
+color:#ff4081;
+font-weight:bold;
+cursor:pointer;
 }
 
 button:hover{
-    transform:scale(1.1);
-    background:#ff4081;
-    color:white;
+background:#ff4081;
+color:white;
 }
 
-.surprise{
-    margin-top:30px;
-    max-width:500px;
-    display:none;
-    animation:slideUp 1s ease forwards;
-}
-
-@keyframes slideUp{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
+.hidden{
+display:none;
 }
 
 .color{
-    position:fixed;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    animation:blast 2s linear forwards;
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+animation:blast 2s linear forwards;
 }
 
 @keyframes blast{
-    from{transform:translate(0,0);opacity:1;}
-    to{transform:translate(var(--x),var(--y));opacity:0;}
-}
-
-@media(max-width:480px){
-    h1{font-size:1.5rem;}
+from{transform:translate(0,0);opacity:1;}
+to{transform:translate(var(--x),var(--y));opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-    <img src="r.jpeg" alt="Her Photo">
-
-    <h1>Happy Holi My Love 🌈❤️</h1>
-    <p class="subtitle">You are the most beautiful color of my life 💕</p>
-
-    <div id="typing"></div>
-
-    <button onclick="startSurprise()">Open Your Surprise 🎁</button>
+<!-- PASSWORD SCREEN -->
+<div class="container" id="loginBox">
+<h2>Enter Password to Open Surprise ❤️</h2>
+<input type="password" id="passwordInput" placeholder="Enter password">
+<button onclick="checkPassword()">Open</button>
+<p id="error" style="margin-top:10px;color:#ffcccc;"></p>
 </div>
 
-<div class="surprise" id="loveContent">
-    <h2>Happy Holi My Queen 🌸❤️</h2>
-    <p style="margin-top:15px;">
-        This Holi I want to fill your life with happiness,
-        love and endless smiles 😘💖 <br><br>
-        You are the most beautiful part of my world.
-        I Love You Forever ❤️
-    </p>
+<!-- MAIN CONTENT -->
+<div class="container hidden" id="mainContent">
+
+<h1>Happy Holi My Love 🌈❤️</h1>
+<p>You are the most beautiful color of my life 💕</p>
+
+<h2 style="margin-top:15px;">Riya ❤️</h2>
+
+<button onclick="startSurprise()">Open Your Surprise 🎁</button>
+
+<div id="loveMessage" style="display:none;margin-top:20px;">
+<p>
+This Holi I’m going to miss you so much 💕<br>
+But no matter the distance, my love is always with you ❤️<br><br>
+Love you forever 😘
+</p>
+</div>
+
 </div>
 
 <audio id="bgMusic" preload="auto">
-    <source src="love.mp3" type="audio/mpeg">
+<source src="love.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
+const correctPassword = "riya123"; // 👈 Yaha password change karo
 const music = document.getElementById("bgMusic");
-const nameText = "Riya ❤️"; // 👈 Yaha uska naam likh dena
-let i = 0;
 
-// Typing Effect
-function typeEffect(){
-    if(i < nameText.length){
-        document.getElementById("typing").innerHTML += nameText.charAt(i);
-        i++;
-        setTimeout(typeEffect,80);
-    }
+function checkPassword(){
+let input = document.getElementById("passwordInput").value;
+if(input === correctPassword){
+document.getElementById("loginBox").classList.add("hidden");
+document.getElementById("mainContent").classList.remove("hidden");
+music.play().catch(()=>{});
+}else{
+document.getElementById("error").innerText = "Wrong Password ❤️";
 }
-typeEffect();
-
-// Autoplay try
-window.addEventListener("load", function(){
-    music.play().catch(()=>{});
-});
-
-// Backup click start
-document.addEventListener("click", function(){
-    music.play().catch(()=>{});
-}, { once:true });
+}
 
 function startSurprise(){
 
-    music.play().catch(()=>{});
+music.play().catch(()=>{});
+document.getElementById("loveMessage").style.display="block";
 
-    document.getElementById("loveContent").style.display="block";
+for(let i=0;i<100;i++){
+let color=document.createElement("div");
+color.classList.add("color");
+document.body.appendChild(color);
 
-    for(let i=0;i<100;i++){
-        let color=document.createElement("div");
-        color.classList.add("color");
-        document.body.appendChild(color);
+color.style.background=`hsl(${Math.random()*360},100%,50%)`;
+color.style.left=window.innerWidth/2+"px";
+color.style.top=window.innerHeight/2+"px";
+color.style.setProperty('--x',(Math.random()*800-400)+"px");
+color.style.setProperty('--y',(Math.random()*800-400)+"px");
 
-        color.style.background=`hsl(${Math.random()*360},100%,50%)`;
-        color.style.left=window.innerWidth/2+"px";
-        color.style.top=window.innerHeight/2+"px";
-        color.style.setProperty('--x',(Math.random()*800-400)+"px");
-        color.style.setProperty('--y',(Math.random()*800-400)+"px");
-
-        setTimeout(()=>{color.remove();},2000);
-    }
+setTimeout(()=>{color.remove();},2000);
+}
 }
 
 </script>
