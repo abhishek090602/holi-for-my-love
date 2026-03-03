@@ -23,10 +23,10 @@ align-items:center;
 background:linear-gradient(-45deg,#ff6ec4,#7873f5,#f7971e,#ffd200);
 background-size:400% 400%;
 animation:bgMove 8s infinite alternate;
-overflow:hidden;
 color:white;
 text-align:center;
 padding:20px;
+overflow:hidden;
 }
 
 @keyframes bgMove{
@@ -36,13 +36,14 @@ padding:20px;
 
 .container{
 background:rgba(255,255,255,0.15);
-backdrop-filter:blur(20px);
+backdrop-filter:blur(15px);
 padding:30px;
 border-radius:25px;
 max-width:420px;
 width:100%;
-box-shadow:0 15px 50px rgba(0,0,0,0.3);
+box-shadow:0 10px 40px rgba(0,0,0,0.3);
 }
+
 .profile-pic{
 width:150px;
 height:150px;
@@ -65,14 +66,16 @@ button{
 padding:10px 20px;
 margin-top:15px;
 border:none;
-border-radius:20px;
+border-radius:25px;
 background:white;
 color:#ff4081;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
 }
 
 button:hover{
+transform:scale(1.1);
 background:#ff4081;
 color:white;
 }
@@ -83,8 +86,8 @@ display:none;
 
 .color{
 position:fixed;
-width:20px;
-height:20px;
+width:15px;
+height:15px;
 border-radius:50%;
 animation:blast 2s linear forwards;
 }
@@ -98,44 +101,42 @@ to{transform:translate(var(--x),var(--y));opacity:0;}
 
 <body>
 
-<!-- PASSWORD SCREEN -->
+<!-- PASSWORD BOX -->
 <div class="container" id="loginBox">
-<h2>Enter Password to Open Surprise ❤️</h2>
+<h2>Enter Password ❤️</h2>
 <input type="password" id="passwordInput" placeholder="Enter password">
 <button onclick="checkPassword()">Open</button>
-<p id="error" style="margin-top:10px;color:#ffcccc;"></p>
+<p id="error" style="margin-top:10px;color:#ffdada;"></p>
 </div>
 
 <!-- MAIN CONTENT -->
 <div class="container hidden" id="mainContent">
 
-<div class="container hidden" id="mainContent">
-
 <img src="r.jpeg" alt="Her Photo" class="profile-pic">
+
 <h1>Happy Holi My Love 🌈❤️</h1>
 <p>You are the most beautiful color of my life 💕</p>
 
-<h2 style="margin-top:15px;">Riya ❤️</h2>
-
-<button onclick="startSurprise()">Open Your Surprise 🎁</button>
+<button onclick="startSurprise()">Tap for Surprise 🎁</button>
 
 <div id="loveMessage" style="display:none;margin-top:20px;">
 <p>
-This Holi I’m going to miss you so much 💕<br>
-But no matter the distance, my love is always with you ❤️<br><br>
+I’m going to miss you so much this Holi 💕<br>
+But my love will always reach you no matter what ❤️<br><br>
 Love you forever 😘
 </p>
 </div>
 
 </div>
 
-<audio id="bgMusic" preload="auto">
+<!-- MUSIC -->
+<audio id="bgMusic">
 <source src="love.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-const correctPassword = "riab1009"; // 👈 Yaha password change karo
+const correctPassword = "riya123";  // 👈 Yaha password change karo
 const music = document.getElementById("bgMusic");
 
 function checkPassword(){
@@ -143,18 +144,18 @@ let input = document.getElementById("passwordInput").value;
 if(input === correctPassword){
 document.getElementById("loginBox").classList.add("hidden");
 document.getElementById("mainContent").classList.remove("hidden");
-music.play().catch(()=>{});
 }else{
-document.getElementById("error").innerText = "Wrong Password ❤️";
+document.getElementById("error").innerText="Wrong Password ❤️";
 }
 }
 
 function startSurprise(){
 
 music.play().catch(()=>{});
+
 document.getElementById("loveMessage").style.display="block";
 
-for(let i=0;i<100;i++){
+for(let i=0;i<70;i++){
 let color=document.createElement("div");
 color.classList.add("color");
 document.body.appendChild(color);
@@ -162,8 +163,8 @@ document.body.appendChild(color);
 color.style.background=`hsl(${Math.random()*360},100%,50%)`;
 color.style.left=window.innerWidth/2+"px";
 color.style.top=window.innerHeight/2+"px";
-color.style.setProperty('--x',(Math.random()*800-400)+"px");
-color.style.setProperty('--y',(Math.random()*800-400)+"px");
+color.style.setProperty('--x',(Math.random()*600-300)+"px");
+color.style.setProperty('--y',(Math.random()*600-300)+"px");
 
 setTimeout(()=>{color.remove();},2000);
 }
@@ -173,4 +174,3 @@ setTimeout(()=>{color.remove();},2000);
 
 </body>
 </html>
-
